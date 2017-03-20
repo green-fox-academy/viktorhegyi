@@ -1,0 +1,23 @@
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: orange;
+}
+
+.red {
+  color: red;
+}
+
+.item {
+  color: blue;
+}
+
+.first {
+  list-style-type: square;
+}
+
+.inside {
+  list-style-type: disc;
+}

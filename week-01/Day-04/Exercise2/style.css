@@ -1,0 +1,36 @@
+.bigbox {
+  font-size: 36px;
+  border: 16px solid #3484F0;
+  width: 380px;
+  height: 480px;
+  color: white;
+  text-align: center;
+
+
+
+}
+
+.north, .east, .south, .west {
+  height: 80px;
+  padding-top: 40px;
+
+}
+.north {
+  background-color: #EE7678;
+
+}
+
+.east {
+  background-color: #F3F170;
+
+}
+
+.south {
+  background-color: #A1E6E6;
+
+}
+
+.west {
+  background-color: #7291E0;
+
+}

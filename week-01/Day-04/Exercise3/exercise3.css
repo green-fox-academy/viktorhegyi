@@ -1,0 +1,19 @@
+.north, .south {
+  border: 15px solid #4285F4;
+  text-align: center;
+  height: 200px;
+  font-size: 36px;
+  color: white;
+  margin: 5px;
+  width: 350px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.north {
+  background-color: #E67676;
+}
+
+.south {
+  background-color: #A9E6E6;
+}
