@@ -1,3 +1,3 @@
 # viktorhegyi
 
-(https://github.com/greenfox-academy/eagles-syllabus "Syllabus")
+[Syllabus](https://github.com/greenfox-academy/eagles-syllabus)
