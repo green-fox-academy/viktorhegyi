@@ -44,7 +44,7 @@ public class VariableMutation {
 
 
         int e = 8;
-        e = ( e * e);
+        e = e * e * e;
         // please cube of e's value
 
 

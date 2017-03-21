@@ -9,11 +9,11 @@ public class AnimalsAndLegs {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
       System.out.println("How many chickens do you have?");
-        int chichens = scanner.nextInt();
+        int chickens = scanner.nextInt();
       System.out.println("How many pigs do you have?");
         int pigs = scanner.nextInt();
 
-      int numberOfLegs = (chichens * 2) + (pigs * 4);
+      int numberOfLegs = (chickens * 2) + (pigs * 4);
 
     System.out.println("Your animals have " + numberOfLegs + " legs all together.");
     // Write a program that asks for two integers
