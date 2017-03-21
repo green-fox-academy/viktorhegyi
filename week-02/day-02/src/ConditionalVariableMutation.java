@@ -7,7 +7,7 @@ public class ConditionalVariableMutation {
     int out = 0;
 
     if ( a % 2 == 0) {
-      out = out + 1;
+      out++;
     }
     // if w is even increment out by one
 
@@ -18,18 +18,14 @@ public class ConditionalVariableMutation {
 
 
     int b = 13;
-    String out2 = "Sweet!";
+    String out2 = "";
 
-    if (( b >= 10) && (b <= 20)) {
-      System.out.println(out2);
-    } else if ( b < 10 ) {
+    if ( b < 10) {
       out2 = "More!";
-      System.out.println(out2);
     } else if ( b > 20 ) {
       out2 = "Less!";
-      System.out.println(out2);
     } else {
-      
+      out2 = "Sweet!";
     }
 
     // if b is between 10 and 20 set out2 to "Sweet!"
@@ -45,12 +41,13 @@ public class ConditionalVariableMutation {
     int credits = 100;
     boolean isBonus = false;
 
-    if ( (credits > 50) && isBonus) {
-      c -= 2;
-    } else if (( credits < 50) && isBonus) {
-      c -= 1;
-    } else if (isBonus = true) {
-      c = c;
+    if ( isBonus == false) {
+      if ( credits >= 50 ) {
+        c -= 2;
+      }
+      else if ( credits < 50 ) {
+        c -= 1;
+      }
     }
     // if credits are at least 50,
     // and isBonus is false decrement c by 2

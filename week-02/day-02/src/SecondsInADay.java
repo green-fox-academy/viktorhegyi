@@ -7,6 +7,12 @@ public class SecondsInADay {
         int currentMinutes = 34;
         int currentSeconds = 42;
 
+        int secondsOfTheDay = 24 * 60 * 60;
+        int secondsOfNow = currentHours * currentMinutes * currentSeconds;
+
+        int remainingSecondsOfTheDay = secondsOfTheDay - secondsOfNow;
+
+        System.out.println("Remaining seconds from the day: " +  remainingSecondsOfTheDay );
 
 
         // Write a program that prints the remaining seconds (as an integer) from a

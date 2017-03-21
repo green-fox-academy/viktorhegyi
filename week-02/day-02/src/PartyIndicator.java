@@ -11,17 +11,21 @@ public class PartyIndicator {
     System.out.println("How many boy in the party?");
     int numberOfBoys = scanner.nextInt();
 
-    if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
-      System.out.println("The party is exellent!");
-    } else if ((numberOfBoys + numberOfGirls) >= 20 && (numberOfBoys != numberOfGirls)) {
-      System.out.println("Quite cool party!");
-    } else if ((numberOfGirls + numberOfBoys) < 20) {
-      System.out.println("Average party...");
-    } else if( numberOfGirls == 0) {
+    int participants = numberOfBoys + numberOfGirls;
+
+    if (numberOfGirls != 0) {
+      if (numberOfBoys == numberOfGirls && participants > 20) {
+        System.out.println("The party is excellent!");
+      } else if (numberOfBoys != numberOfGirls && participants > 20) {
+        System.out.println("Quite cool party!");
+      } else if (participants < 20) {
+        System.out.println("Average party...");
+      }
+    } else {
       System.out.println("Sausage party");
+
+
     }
-
-
   }
 }
 
