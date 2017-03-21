@@ -23,9 +23,9 @@ public class TwoNumbers {
         System.out.println(a + b);
         System.out.println(b - a);
         System.out.println(b * a);
-        System.out.println(b / a);
-        System.out.println(b / a);
-        System.out.println(b % a);
+        System.out.println(a / 13.);
+        System.out.println(22. / a);
+        System.out.println(a % b);
 
     }
 
