@@ -10,16 +10,19 @@ public class Printer {
     String inputThree = "a ";
     String inputFour = "sentence";
 
-    String input = inputOne + inputTwo + inputThree + inputFour;
-
-    printer(input);
+    printer(inputOne, inputTwo);
 
   }
 
-  public static void printer(String input) {
-    System.out.println(input);
+  public static void printer(String... input) {
+    for ( String i : input) {
+      System.out.println(i);
+    }
+
+
+      }
   }
-}
+
 //  Create the usual class wrapper
 //  and main method on your own.
 
