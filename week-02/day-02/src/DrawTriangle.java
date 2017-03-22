@@ -10,9 +10,12 @@ public class DrawTriangle {
     System.out.println("Number:");
     int number = scanner.nextInt();
 
-    for ( int size= )
-
-
+    for ( int i = 1; i < number + 1; i++) {
+      for (int j = 0; j < i; j++) {
+      System.out.print("*");
+      }
+      System.out.println("");
+      }
   }
 }
 // Write a program that reads a number from the standard input, then draws a
