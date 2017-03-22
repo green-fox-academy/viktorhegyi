@@ -10,7 +10,7 @@ public class Printer {
     String inputThree = "a ";
     String inputFour = "sentence";
 
-    printer(inputOne, inputTwo);
+    printer(inputOne, inputTwo, inputThree);
 
   }
 
