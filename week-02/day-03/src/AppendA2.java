@@ -10,7 +10,7 @@ public class AppendA2 {
     for ( int i = 0; i < nimals.length; i++) {
         nimals[i] +="a";
     }
-    
+
     System.out.println(Arrays.toString(nimals));
   }
 }
