@@ -13,7 +13,7 @@ public class DiagonalMatrix {
           if (i == j){
             matrix[i][j] = 1;}
 
-          System.out.println(matrix[i][j] + " " );
+          System.out.print(matrix[i][j] + " " );
         }
         System.out.println();
         }
