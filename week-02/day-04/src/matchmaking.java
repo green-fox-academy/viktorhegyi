@@ -12,8 +12,12 @@ public class matchmaking {
         Arrays.asList("Joe", "Fred", "Béla", "Todd", "Neef", "Jeff"));
     ArrayList<String> order = new ArrayList<String>();
 
-    order.addAll(girls);
-    order.addAll(boys);
+    for (int i = 0; i < girls.size(); i++) {
+      order.add(girls.get(i));
+      order.add(boys.get(i));
+    } for (int j = girls.size(); j < boys.size(); j++) {
+      order.add(boys.get(j));
+    }
 
       // Join the two lists by matching one girl with one boy in the order list
       // Exepected output: "Eve", "Joe", "Ashley", "Fred"...
