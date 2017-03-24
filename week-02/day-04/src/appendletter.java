@@ -4,7 +4,7 @@
 import java.util.*;
 
 public class appendletter {
-  public static void main(String... args){
+    public static void main(String... args){
     ArrayList<String> far = new ArrayList<String>(Arrays.asList("kuty", "macsk", "kacs", "rók", "halacsk"));
 
     for ( int i = 0; i < far.size(); i++) {
