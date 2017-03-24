@@ -10,14 +10,19 @@ public class anagram {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Write in two words to find out if they are anagrams");
 
-    String inputOne = scanner.nextLine();
-    String inputTwo = scanner.nextLine();
+    String wordOne = scanner.nextLine();
+    String wordTwo = scanner.nextLine();
 
+    anagram(wordOne, wordTwo);
+  }
+
+  public static void anagram(String inputOne, String inputTwo) {
     String copyOfInputOne = inputOne.replaceAll("\\s", "");
     String copyOfInputTwo = inputTwo.replaceAll("\\s", "");
+    boolean status = true;
 
     if (inputOne.length() != inputTwo.length()) {
-      System.out.println("Not anagram");
+      status = false;
     } else {
       char[] inputOneChar = copyOfInputOne.toLowerCase().toCharArray();
       char[] inputTwoChar = copyOfInputTwo.toLowerCase().toCharArray();
@@ -25,11 +30,13 @@ public class anagram {
       Arrays.sort(inputOneChar);
       Arrays.sort(inputTwoChar);
 
-      Arrays.equals(inputOneChar, inputTwoChar);
-
-      System.out.println("Yee. Anagram.");
-
-    }
+      status = Arrays.equals(inputOneChar, inputTwoChar);
+      }
+    if (status) {
+      System.out.println("Yeee. Anagrams");
+      } else {
+      System.out.println("Not anagrams");
+      }
 
   }
 }
