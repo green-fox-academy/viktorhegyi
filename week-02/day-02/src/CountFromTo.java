@@ -13,15 +13,14 @@ public class CountFromTo {
     int numberOne = scanner.nextInt();
     int numberTwo = scanner.nextInt();
 
-    if (numberOne >= numberTwo) {
+    while ( numberOne >= numberTwo) {
       System.out.println("The second number should be bigger");
-    } else {
-      int count = numberOne;
-      while (count < numberTwo) {
-        System.out.println(count);
-        count += 1;
-      }
+      numberOne = scanner.nextInt();
     }
+
+      for ( int i = numberOne; i <numberTwo; i++ ) {
+      System.out.println(i);
+      }
   }
 }
 // Create a program that asks for two numbers
