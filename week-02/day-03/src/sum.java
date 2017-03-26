@@ -8,16 +8,16 @@ public class sum {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Give me a number");
     int givenParameter = scanner.nextInt();
-    sum(givenParameter);
+    System.out.println(sum(givenParameter));
 
   }
 
-  public static void sum(int givenParameter) {
+  public static int sum(int givenParameter) {
     int sumOfNumbers = 0;
     for ( int i = 1; i<givenParameter+1; i++){
-      sumOfNumbers = sumOfNumbers + i;
+      sumOfNumbers += i;
     }
-    System.out.println("Sum: " + sumOfNumbers);
+    return sumOfNumbers;
   }
 }
 

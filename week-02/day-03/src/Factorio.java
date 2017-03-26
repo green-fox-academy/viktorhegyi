@@ -8,18 +8,17 @@ public class Factorio {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Number?");
     int input = scanner.nextInt();
-    factorio(input);
-
+    System.out.println(factorio(input));
   }
 
-  public static void factorio(int input) {
-    int factorial = input;
-    for (int i = 1; i<input; i++) {
-      factorial = factorial * i;
+  public static int factorio(int input) {
+    int factorial = 1;
+    for (int i = 1; i <= input; i++) {
+      factorial *= i;
     }
-    System.out.println("Factorial: " + factorial);
-    }
+    return factorial;
   }
+}
 
 //  Create the usual class wrapper
 //  and main method on your own.

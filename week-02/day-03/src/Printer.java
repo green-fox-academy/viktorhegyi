@@ -11,17 +11,14 @@ public class Printer {
     String inputFour = "sentence";
 
     printer(inputOne, inputTwo, inputThree);
-
   }
 
   public static void printer(String... input) {
     for ( String i : input) {
-      System.out.println(i);
+      System.out.print(i);
     }
-
-
-      }
   }
+}
 
 //  Create the usual class wrapper
 //  and main method on your own.

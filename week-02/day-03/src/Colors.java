@@ -14,9 +14,10 @@ public class Colors {
     System.out.println(Arrays.toString(colors[1]));
     System.out.println(Arrays.toString(colors[2]));
 
-
+    /*    for (int i = 0; i < colors.length; i++) {
+      System.out.println(Arrays.toString(colors[i]));*/
   }
-  }
+}
 
 
 // - Create a two dimensional array

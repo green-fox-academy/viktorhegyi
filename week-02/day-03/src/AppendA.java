@@ -4,12 +4,13 @@
 public class AppendA {
   public static void main(String[] args) {
     String am = "kuty";
-    appendA(am);
+
+    System.out.println(appendA(am));
 
   }
-
-  public static void appendA(String am){
-    System.out.println(am + "a");
+  public static String appendA(String input){
+    input = input + "a";
+    return input;
 
   }
 }

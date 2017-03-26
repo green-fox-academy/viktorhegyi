@@ -8,14 +8,9 @@ public class CompareLength {
     int[] p1 = {1, 2, 3};
     int[] p2 = {4, 5};
 
-    int p1Length = p1.length;
-    int p2Length = p2.length;
-
-    if ( p1Length < p2Length) {
+    if ( p1.length < p2.length) {
       System.out.println("p2 has more element than p1");
     }
-
-
   }
 }
 // - Create an array variable named `p1`
