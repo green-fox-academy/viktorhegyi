@@ -3,19 +3,17 @@
  */
 import java.util.Scanner;
 
-public class palindrome {
+public class palindromebuilder {
+
   public static void main(String... args) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Write in a word");
     String input = scanner.nextLine();
 
+    String reverse = new StringBuffer(input).reverse().toString();
 
-  }
+    String palindrome = input + reverse;
 
-  private static void createPalindrome(String input) {
-    String word = input;
-    for (int i = word.length() - 1; i > 0; i--) {
-
-    }
+    System.out.println(palindrome);
   }
 }
