@@ -26,23 +26,6 @@ public class Checkerboard {
       }
     }
   }
- /* private static void draw(Graphics graphics) {
-
-    int size = 300;
-    int square = 40;
-    for (int i = 0; i <size ; i += square) {
-      for (int j = 0; j <size ; j += square) {
-        graphics.setColor(Color.BLACK);
-        graphics.drawRect(i,j,square,square);
-      }
-    }
-
-    for (int i = 0; i <size ; i += square) {
-      graphics.fillRect(i,i,square,square);
-    }*/
-
-
-
   // fill the canvas with a checkerboard pattern.
 
   //    Don't touch the code below
