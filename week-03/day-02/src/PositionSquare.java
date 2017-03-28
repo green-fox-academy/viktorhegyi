@@ -7,21 +7,24 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class FourRectangles {
+public class PositionSquare {
 
   public static void mainDraw(Graphics graphics){
 
-    graphics.setColor(Color.GREEN);
-    graphics.drawRect(5, 15, 30,50);
-    graphics.setColor(Color.BLUE);
-    graphics.drawRect(50, 80, 20,40);
+    drawSquare(10, 20, graphics);
+    drawSquare(100, 150, graphics);
+    drawSquare(200, 200, graphics);
+
+    // create a square drawing function that takes 2 parameters:
+    // the x and y coordinates of the square's top left corner
+    // and draws a 50x50 square from that point.
+    // draw 3 squares with that function.
+
+  }
+
+  private static void drawSquare(int x, int y, Graphics graphics) {
     graphics.setColor(Color.BLACK);
-    graphics.drawRect(200, 200, 70,50);
-    graphics.setColor(Color.YELLOW);
-    graphics.drawRect(20, 200, 50,20);
-
-    // draw four different size and color rectangles.
-
+    graphics.drawRect(x, y, 50, 50);
   }
 
   //    Don't touch the code below
