@@ -11,15 +11,15 @@ public class FunctionToCenter {
 
   public static void mainDraw(Graphics graphics){
     for (int i = 0; i < 300 ; i = i + 20) {
-      for (int j = 0; j <300 ; j = j + 20) {
-        drawToCenter(j,300,graphics);
-        drawToCenter(300,j,graphics);
+      for (int j = 0; j < 300 ; j = j + 20) {
+        drawToCenter(j, 300, graphics);
+        drawToCenter(300, j, graphics);
       }
-        drawToCenter(i,0,graphics);
-        drawToCenter(0,i,graphics);
+        drawToCenter(i, 0, graphics);
+        drawToCenter(0, i, graphics);
       }
     }
-  
+
   private static void drawToCenter(int x, int y, Graphics graphics) {
     int centerX = 150;
     int centerY = 150;
