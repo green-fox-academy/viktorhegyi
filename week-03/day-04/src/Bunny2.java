@@ -8,7 +8,7 @@ public class Bunny2 {
   }
 
   public static int bunnies(int n) {
-    int sum;
+    int sum = 0;
     if (n == 1) {
       return 2;
     } else {
