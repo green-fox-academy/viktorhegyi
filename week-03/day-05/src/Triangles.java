@@ -14,33 +14,30 @@ import javax.swing.JPanel;
 
     public static void mainDraw(Graphics graphics){
 
-      drawFractals(graphics, 450, 600, 300, 260);
+      drawFractals(graphics, 450, 600, 300);
 
     }
-
     public static int random() {
       int color = (int) (Math.random() * 16777216);
       return color;
     }
 
-    private static void drawTriangles (Graphics graphics, int x, int y, int lenght, int height) {
+    private static void drawTriangles (Graphics graphics, int x, int y, int lenght) {
       graphics.setColor(Color.black);
       int[] first = {x, x + lenght, x - lenght};
-      int[] second = {y, y - height * 2, y - height * 2};
+      int[] second = {y, y - lenght * 2, y - lenght * 2};
       graphics.setColor(new Color(random()));
       graphics.drawPolygon(first,second,3);
-
     }
 
-    private static void drawFractals(Graphics graphics, int x, int y, int lenght, int height) {
+    private static void drawFractals(Graphics graphics, int x, int y, int lenght) {
       if (lenght < 1) {
         return;
       } else {
-        drawTriangles(graphics, x, y, lenght, height);
-        drawFractals(graphics, x, y, lenght /2, height /2);
-        drawFractals(graphics, x - lenght / 2, y - height, lenght /2, height / 2);
-        drawFractals(graphics, x + lenght / 2, y - height, lenght /2, height/ 2 );
-
+        drawTriangles(graphics, x, y, lenght);
+        drawFractals(graphics, x, y, lenght /2);
+        drawFractals(graphics, x - lenght / 2, y - lenght, lenght /2);
+        drawFractals(graphics, x + lenght / 2, y - lenght, lenght /2);
       }
     }
 
