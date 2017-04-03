@@ -9,25 +9,25 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SquareGrid {
   public static void mainDraw(Graphics graphics) {
-
-    fractual(graphics,0,0, 600);
+    int size = 600;
+    fractual(graphics,size / 4,size / 4, size / 2);
 
   }
   private static void drawSquare (Graphics graphics, int x, int y, int size) {
     graphics.setColor(Color.BLACK);
-    graphics.drawRect(x + size / 4, y + size / 4, size / 2, size / 2);
+    graphics.drawRect(x, y, size, size);
   }
 
   private static void fractual(Graphics graphics, int x, int y, int size) {
-    if (size < 1) {
+    if (size < 30) {
       return;
     } else {
       drawSquare(graphics, x, y, size);
-      fractual(graphics, x + size / 8, y + size / 8, size / 4 );
-      //fractual(graphics, (x + size / 8) * 5, y + size / 8, size / 4) ;
-      //fractual(graphics, x + size /8, (y + size / 8) * 5, size / 4);
+      fractual(graphics, x - size / 4, y - size / 4, size / 2);
+      fractual(graphics, x - size / 4, y + (size / 4) * 3, size / 2);
+      fractual(graphics, x + (size / 4) * 3, y + (size / 4) * 3, size / 2);
+      fractual(graphics, x + (size / 4) * 3, y - size / 4, size / 2);
     }
-
 }
 
   //    Don't touch the code below

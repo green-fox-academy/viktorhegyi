@@ -11,7 +11,7 @@ public class StarryNight {
 
   public static void mainDraw(Graphics graphics){
 
-    for (int i = 0; i < 20 ; i++) {
+    for (int i = 0; i < 70 ; i++) {
       stars(graphics);
     }
   }
@@ -19,8 +19,8 @@ public class StarryNight {
   private static void stars(Graphics graphics) {
     int random = 100 + (int) (Math.random() * 150);
     graphics.setColor(new Color(random,random,random));
-    int randomPositionX = (int) (Math.random() * 300);
-    int randomPositionY = (int) (Math.random() * 300);
+    int randomPositionX = (int) (Math.random() * 900);
+    int randomPositionY = (int) (Math.random() * 900);
 
     graphics.fillRect(randomPositionX, randomPositionY, 2,2);
   }
@@ -33,7 +33,7 @@ public class StarryNight {
   //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
-    jFrame.setSize(new Dimension(300, 300));
+    jFrame.setSize(new Dimension(900, 900));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);
