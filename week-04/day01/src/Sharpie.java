@@ -10,10 +10,14 @@ public class Sharpie {
   public Sharpie(String color, float width) {
     this.color = color;
     this.width = width;
-    inkAmount = 100;
+    inkAmount = 100f;
   }
 
   public void use() {
     inkAmount--;
+  }
+
+  boolean isUsable() {
+    return inkAmount > 0;
   }
 }
