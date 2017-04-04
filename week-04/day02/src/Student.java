@@ -8,10 +8,10 @@ public class Student {
   String gender;
   String previousOrganization;
   int skippedDays;
-  int numberOfDays;
+  int skipDays;
 
   public void getGoal() {
-    System.out.println("Be a junior software developer.");
+    System.out.println("My goal: " + "Be a junior software developer.");
   }
 
   public void introduce() {
@@ -20,11 +20,15 @@ public class Student {
         " days from the course already.");
   }
 
-  public void skipDays() {
-    this.skippedDays += numberOfDays;
+  public void skipDays(int i) {
+    this.skippedDays += skipDays;
   }
 
   public Student (String name, int age, String gender, String previousOrganization) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.previousOrganization = previousOrganization;
     this.skippedDays = 0;
   }
 
