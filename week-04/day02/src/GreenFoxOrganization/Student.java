@@ -19,7 +19,7 @@ public class Student extends Person {
   }
 
   public void skipDays(int i) {
-    this.skippedDays =+ i;
+    this.skippedDays += i;
   }
 
   public Student (String name, int age, String gender, String previousOrganization) {
