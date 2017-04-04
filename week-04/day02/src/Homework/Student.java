@@ -1,3 +1,5 @@
+package Homework;
+
 /**
  * Created by hegyi on 2017-04-03.
  */
