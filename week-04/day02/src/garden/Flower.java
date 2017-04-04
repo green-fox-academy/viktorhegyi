@@ -5,27 +5,11 @@ package garden;
  */
 public class Flower extends Plant {
 
-  public Flower (String color) {
-    this.color = color;
-    this.plantsWaterAmount = 0;
-
-    if (plantsWaterAmount < 5 ) {
-      System.out.println("The " + color + " Flower " + "needs water.");
-    } else {
-      System.out.println("The " + color + " Flower " + " doesn`t need water.");
-
-    }
+  public Flower(String color) {
+    super.color = color;
+    super.waterState = 0;
+    this.waterAbsorption = 0.75;
+    this.waterNeed = 5;
+    super.type = "flower";
   }
-
-  public void needsWaterFlower() {
-    if ( plantsWaterAmount > 5) {
-      System.out.println("The " + color + " Flower " + " doesn`t need water.");
-    } else {
-      System.out.println("The " + color + " Flower " + "needs water.");
-    }
-  }
-
-
-
-
 }

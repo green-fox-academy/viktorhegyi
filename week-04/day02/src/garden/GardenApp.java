@@ -7,20 +7,25 @@ public class GardenApp {
 
   public static void main(String[] args) {
 
-    Garden theGarden = new Garden();
+    Garden garden = new Garden();
+
 
     Flower yellowFlower = new Flower("yellow");
-    theGarden.addFlower(yellowFlower);
     Flower blueFlower = new Flower("blue");
-    theGarden.addFlower(blueFlower);
     Tree purpleTree = new Tree("purple");
-    theGarden.addTree(purpleTree);
     Tree orangeTree = new Tree("orange");
-    theGarden.addTree(orangeTree);
 
-    theGarden.watering(40);
+    garden.addFlowers(yellowFlower);
+    garden.addFlowers(blueFlower);
+    garden.addTrees(purpleTree);
+    garden.addTrees(orangeTree);
 
+    garden.info();
+    garden.watering(40);
 
+    garden.info();
+    garden.watering(70);
 
+    garden.info();
   }
 }

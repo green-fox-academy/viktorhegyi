@@ -1,29 +1,54 @@
 package garden;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hegyi on 2017-04-04.
  */
 public class Garden {
 
-  ArrayList<Plant> theGarden;
+  int watercount = 0;
 
+  List<Plant> myGarden = new ArrayList<>();
 
-  public void watering(int wateringAmount) {
-    System.out.println("Watering with " + wateringAmount);
+  public void addFlowers(Flower flower) {
+    this.myGarden.add(flower);
   }
 
-  public Garden() {
-    theGarden = new ArrayList<>();
+  public void addTrees(Tree tree) {
+    this.myGarden.add(tree);
   }
 
-  public void addFlower (Flower flower) {
-    theGarden.add(flower);
+  public void info() {
+    for (Plant plant : myGarden) {
+      if (plant.waterState < plant.waterNeed) {
+        System.out.println("The " + plant.getColor() + " " + plant.type +
+            " needs water.");
+      } else {
+        System.out.println("The " + plant.getColor() + " " + plant.type
+            + " doesn't need water.");
+      }
+    }
+    System.out.println();
   }
 
-  public void addTree (Tree tree) {
-    theGarden.add(tree);
-  }
+  public void watering(int waterAmount) {
 
+    watercount = 0;
+
+    System.out.println("Watering with: " + waterAmount );
+
+    for (Plant plant : myGarden) {
+      if (plant.waterState < plant.waterNeed) {
+        watercount++;
+      }
+    }
+
+    for (Plant plant : myGarden) {
+      if (plant.waterState < plant.waterNeed) {
+        plant.waterState += ((waterAmount / watercount) * plant.waterAbsorption);
+      }
+    }
+  }
 }

@@ -5,14 +5,13 @@ package garden;
  */
 public class Plant {
 
-  double plantsWaterAmount;
+  String type;
   String color;
+  double waterAbsorption;
+  int waterNeed;
+  double waterState;
 
-  public double getPlantsWaterAmount() {
-    return plantsWaterAmount;
-  }
-
-  public void setPlantsWaterAmount(double plantsWaterAmount) {
-    this.plantsWaterAmount = plantsWaterAmount;
+  public String getColor() {
+    return color;
   }
 }
