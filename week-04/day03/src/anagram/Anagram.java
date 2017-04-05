@@ -13,16 +13,16 @@ public class Anagram {
 
     if (copyOfFirstWord == copyOfSecondWord) {
       return true;
-    } else if (firstWord.length() != secondWord.length()) {
+    } else if (copyOfFirstWord.length() != copyOfSecondWord.length()) {
         return false;
     } else {
-      char[] inputOneChar = copyOfFirstWord.toLowerCase().toCharArray();
-      char[] inputTwoChar = copyOfSecondWord.toLowerCase().toCharArray();
+      char[] firstWordChar = copyOfFirstWord.toLowerCase().toCharArray();
+      char[] secondWordChar = copyOfSecondWord.toLowerCase().toCharArray();
 
-      Arrays.sort(inputOneChar);
-      Arrays.sort(inputTwoChar);
+      Arrays.sort(firstWordChar);
+      Arrays.sort(secondWordChar);
 
-      return Arrays.equals(inputOneChar, inputTwoChar);
+      return Arrays.equals(firstWordChar, secondWordChar);
     }
   }
 }

@@ -9,8 +9,8 @@ import org.junit.Test;
  */
 public class TestAnagram {
 
-  String one = "bb d aa";
-  String two = "aa bb d";
+  String one = "bb b";
+  String two = "bbb";
   Anagram test = new Anagram();
 
   @Test
