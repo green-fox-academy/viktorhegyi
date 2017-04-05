@@ -9,10 +9,16 @@ import java.util.List;
 public class CountLetter {
 
   public HashMap countLetterMethod(String theWord) {
-    HashMap<String,Integer> list = new HashMap<>();
 
-    for (int i = 0; i < theWord.length() ; i++) {
-      list.get(i);
+    HashMap<Character,Integer> list = new HashMap<>();
+    String copyOfWord = theWord.toLowerCase();
+
+    for (int i = 0; i < copyOfWord.length() ; i++) {
+      if (list.containsKey(copyOfWord.charAt(i))) {
+        list.put(copyOfWord.charAt(i), list.get(copyOfWord.charAt(i))+1);
+      } else {
+        list.put(copyOfWord.charAt(i), 1);
+      }
     }
     return list;
   }
