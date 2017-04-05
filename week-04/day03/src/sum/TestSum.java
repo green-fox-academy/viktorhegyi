@@ -45,6 +45,6 @@ public class TestSum {
   @Test
   public void testToNull() {
     test = null;
-    assertEquals(null, test);
+    assertEquals(0, list.sumMethod(test));
   }
 }
