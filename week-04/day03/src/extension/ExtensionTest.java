@@ -59,7 +59,7 @@ class ExtensionTest {
 
   @Test
   void testMedian_five() {
-    assertEquals(3, extension.median(Arrays.asList(1,2,3,4,5)));
+    assertEquals(3, extension.median(Arrays.asList(2,3,1,5,4)));
   }
 
   @Test
@@ -75,6 +75,11 @@ class ExtensionTest {
   @Test
   void testIsVowel_u() {
     assertTrue(extension.isVowel('u'));
+  }
+
+  @Test
+  void testIsVowel_UpperCaseVowel() {
+    assertTrue(extension.isVowel('A'));
   }
 
   @Test

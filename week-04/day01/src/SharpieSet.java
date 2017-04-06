@@ -7,13 +7,13 @@ public class SharpieSet {
   ArrayList<Sharpie> sharpies;
 
   public SharpieSet() {
-    sharpies = new ArrayList<>();
+    this.sharpies = new ArrayList<>();
   }
 
   int countUsable() {
     int usableSharpies = 0;
-    for (Sharpie s : sharpies) {
-      if (s.inkAmount > 0) {
+    for (Sharpie usable : sharpies) {
+      if (usable.isUsable()) {
         usableSharpies++;
       }
     }
@@ -21,12 +21,12 @@ public class SharpieSet {
   }
 
   void removeTrash() {
-    for (int i = 0; i < sharpies.size() ;) {
+    for (int i = 0; i < sharpies.size();) {
       if (!sharpies.get(i).isUsable()) {
         sharpies.remove(i);
-      } else {
-        i++;
       }
+      else
+        i++;
     }
   }
 }

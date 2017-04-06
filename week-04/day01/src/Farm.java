@@ -6,32 +6,35 @@ import java.util.ArrayList;
 public class Farm {
 
   private int slots = 4;
+  Animal giraffe = new Animal();
+  Animal lion = new Animal();
+  Animal bear = new Animal();
+  Animal rabbit = new Animal();
 
-  public static void main(String[] args) {
+  ArrayList<Animal> listOfAnimals = new ArrayList<>();
 
-    Animal giraffe = new Animal();
-    Animal lion = new Animal();
-    Animal bear = new Animal();
-    Animal rabbit = new Animal();
-    Animal elephant = new Animal();
+  public void fillWithAnimals() {
 
-    ArrayList<Animal> listOfAnimals = new ArrayList<>(4);
-    listOfAnimals.add(0, giraffe);
-    listOfAnimals.add(1, lion);
-    listOfAnimals.add(2, bear);
-    listOfAnimals.add(3, rabbit);
-
+  listOfAnimals.add(giraffe);
+  listOfAnimals.add(lion);
+  listOfAnimals.add(bear);
+  listOfAnimals.add(rabbit);
   }
 
   public void breed() {
-    if (  < 4 ) {
-      Animal newAnimal = new Animal();
+    if (listOfAnimals.size() < slots) {
+      listOfAnimals.add(new Animal());
     }
   }
 
   public void slaughter() {
-    for (int i = 0; i <  ; i++) {
-
+    int min = 0;
+    for (int i = 0; i <listOfAnimals.size() ; i++) {
+      if (listOfAnimals.get(i).hunger > listOfAnimals.get(i + 1).hunger) {
+        min = i;
+      }
     }
+    listOfAnimals.remove(min);
   }
+
 }

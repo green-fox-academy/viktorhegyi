@@ -22,7 +22,7 @@ public class Extension {
       return c;
   }
 
-  int median(List<Integer> pool) {
+  double median(List<Integer> pool) {
     Collections.sort(pool);
     if ( pool.size() % 2 == 1) {
       return pool.get((pool.size()) / 2);
@@ -31,7 +31,8 @@ public class Extension {
   }
 
   boolean isVowel(char c) {
-    return Arrays.asList('a', 'u', 'o', 'e', 'i').contains(c);
+    char cLowercase = Character.toLowerCase(c);
+    return Arrays.asList('a', 'i', 'o', 'u', 'e').contains(cLowercase);
   }
 
   String translate(String hungarian) {
