@@ -12,8 +12,8 @@ public class Board extends JComponent implements KeyListener {
   int testBoxY;
 
   public Board() {
-    testBoxX = 300;
-    testBoxY = 300;
+    testBoxX = 0;
+    testBoxY = 0;
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -24,10 +24,24 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
     graphics.fillRect(testBoxX, testBoxY, 100, 100);
+
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
-    PositionedImage image = new PositionedImage("yourimage.png", 300, 300);
-    image.draw(graphics);
+
+    int canvasSise = 720;
+    int tileSize = 71;
+
+    for (int i = 0; i < canvasSise - tileSize  ; i += tileSize) {
+      for (int j = 0; j < canvasSise - tileSize; j += tileSize) {
+        PositionedImage floor = new PositionedImage("assets/floor.png", i, j);
+        floor.draw(graphics);
+
+      }
+    }
+    PositionedImage hero = new PositionedImage("assets/hero-down.png", 0, 0);
+
+    hero.draw(graphics);
+
   }
 
   public static void main(String[] args) {
@@ -65,6 +79,10 @@ public class Board extends JComponent implements KeyListener {
       testBoxY -= 100;
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
       testBoxY += 100;
+    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      testBoxX += 100;
+    } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+      testBoxX -= 100;
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
