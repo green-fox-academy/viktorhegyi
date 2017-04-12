@@ -5,7 +5,7 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GameObject {
+public class GameObject extends Area {
   BufferedImage image;
   int posX, posY;
 

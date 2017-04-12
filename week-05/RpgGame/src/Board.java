@@ -11,7 +11,7 @@ public class Board extends JComponent implements KeyListener {
   int canvasSise = 720;
   int tileSize = 72;
   Hero hero = new Hero();
-  Area tile = new Area();
+  Area area = new Area();
   Monster monster1 = new Monster();
 
   public Board() {
@@ -23,11 +23,12 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
 
-    tile.drawTile("assets/wallposition.csv");
-    tile.drawBoard(graphics);
+    area.readBoard("assets/wallposition.csv");
+    area.drawBoard(graphics);
 
     hero.draw(graphics);
     monster1.draw(graphics);
+
   }
 
   public static void main(String[] args) {
@@ -53,13 +54,13 @@ public class Board extends JComponent implements KeyListener {
     int x = hero.posX / tileSize;
     int y = hero.posY / tileSize;
 
-    if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tileSize && !tile.isWall(x,y - 1)) {
+    if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tileSize && !area.isWall(x,y - 1)) {
       hero.moveUp();
-    } else if(e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY <= tileSize * 8 && !tile.isWall(x, y +1)) {
+    } else if(e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY <= tileSize * 8 && !area.isWall(x, y + 1)) {
       hero.moveDown();
-    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX <= tileSize * 8 && !tile.isWall(x + 1, y)) {
+    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX <= tileSize * 8 && !area.isWall(x + 1, y)) {
       hero.moveRight();
-    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX > 0 && !tile.isWall(x - 1, y))  {
+    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX > 0 && !area.isWall(x - 1, y))  {
       hero.moveLeft();
     }
     repaint();

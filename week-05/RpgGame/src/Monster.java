@@ -9,23 +9,16 @@ public class Monster extends Character {
     super(ImageLoader.getInstance().SKELETON, posX, posY);
   }
 
-  public int randomPosXGenerator() {
-    int randomPosX = (int) ((Math.random() * 10));
-    randomPosX = randomPosX * tileSize;
-    System.out.println(randomPosX);
-    return randomPosX;
-  }
-
-  public int randomPosYGenerator() {
-    int randomPosY = (int) ((Math.random() * 10));
-    randomPosY = randomPosY * tileSize;
-    System.out.println(randomPosY);
-    return randomPosY;
-  }
-
   public Monster() {
     super(ImageLoader.getInstance().SKELETON);
-    this.posX = randomPosXGenerator();
-    this.posY = randomPosYGenerator();
+    this.posX = randomGenerator();
+    this.posY = randomGenerator();
+    if (posX == 0 && posY == 0 && isWall(posX,posY)) {
+      this.posX = randomGenerator();
+      this.posY = randomGenerator();
+    }
+    this.posX *= tileSize;
+    this.posY *= tileSize;
   }
+
 }

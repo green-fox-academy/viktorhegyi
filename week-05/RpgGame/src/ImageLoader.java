@@ -38,7 +38,6 @@ public class ImageLoader {
     if (instance == null) {
       instance = new ImageLoader();
     }
-
     return instance;
   }
 
