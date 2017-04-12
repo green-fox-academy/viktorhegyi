@@ -8,16 +8,26 @@ import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
 
-  int canvasSise = 720;
-  int tileSize = 72;
-  Hero hero = new Hero();
-  Area area = new Area();
-  Monster monster1 = new Monster();
-  Boss boss = new Boss();
+  final static int mapSize = 720;
+  final static int tileSize = 72;
+  Hero hero;
+  Area area;
+  Monster monster1;
+  Monster monster2;
+  Monster monster3;
+  Boss boss;
+  Hub hub;
 
   public Board() {
-    setPreferredSize(new Dimension(canvasSise, canvasSise));
+    setPreferredSize(new Dimension(mapSize, mapSize + 50));
     setVisible(true);
+    hero = new Hero();
+    area = new Area();
+    monster1 = new Monster();
+    monster2 = new Monster();
+    monster3 = new Monster();
+    boss = new Boss();
+    hub = new Hub();
   }
 
   @Override
@@ -25,11 +35,13 @@ public class Board extends JComponent implements KeyListener {
     super.paint(graphics);
 
     area.drawBoard(graphics);
+    hub.drawHub(graphics);
 
     hero.draw(graphics);
     monster1.draw(graphics);
+    monster2.draw(graphics);
+    monster3.draw(graphics);
     boss.draw(graphics);
-
   }
 
   public static void main(String[] args) {

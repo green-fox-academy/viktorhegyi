@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by hegyi on 2017-04-10.
  */
-public class Area{
+public class Area extends GameObject{
 
   String[][] wallPositions = new String[10][10];
   int size;

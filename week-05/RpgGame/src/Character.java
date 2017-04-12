@@ -10,9 +10,6 @@ public class Character extends GameObject {
   int maxHP;
   int maxDP;
   int maxSP;
-  boolean death = false;
-  int tileSize = 72;
-  int canvasSise = 720;
   int[] random = new int[2];
 
   Area area = new Area();
@@ -39,7 +36,6 @@ public class Character extends GameObject {
     }
     this.posX *= tileSize;
     this.posY *= tileSize;
-
   }
 
   boolean getWallInfo(int x, int y) {

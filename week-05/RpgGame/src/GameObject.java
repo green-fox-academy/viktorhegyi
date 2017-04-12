@@ -8,6 +8,10 @@ import java.awt.image.BufferedImage;
 public class GameObject{
   BufferedImage image;
   int posX, posY;
+  final int tileSize = 72;
+  final int canvasSise = 720;
+
+
 
   public GameObject(BufferedImage image, int posX, int posY) {
     this.posX = posX;
@@ -31,4 +35,5 @@ public class GameObject{
       graphics.drawImage(image, posX, posY, null);
     }
   }
+
 }
