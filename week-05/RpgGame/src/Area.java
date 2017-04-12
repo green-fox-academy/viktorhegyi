@@ -14,6 +14,10 @@ public class Area{
   int size;
   Path path;
 
+  public Area() {
+    readBoard("assets/wallposition.csv");
+  }
+
   public void readBoard(String in) {
     this.path = Paths.get("assets/wallposition.csv");
     try {
@@ -27,7 +31,7 @@ public class Area{
     }
   }
 
-  boolean isWall(int x, int y) {
+  boolean getWallInfo(int x, int y) {
     if ((wallPositions[x][y]).equals("1")) {
         return true;
     } else {
@@ -39,7 +43,7 @@ public class Area{
     size = 72;
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
-        if (!isWall(i, j)) {
+        if (!getWallInfo(i, j)) {
           EmptyTile emptyTile = new EmptyTile(i * size,j * size);
           emptyTile.draw(graphics);
         } else {
