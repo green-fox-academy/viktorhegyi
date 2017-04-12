@@ -15,6 +15,13 @@ public class GameObject {
     setImage(image);
   }
 
+  public GameObject() {
+  }
+
+  public GameObject(BufferedImage image) {
+    setImage(image);
+  }
+
   protected void setImage(BufferedImage image) {
     this.image = image;
   }

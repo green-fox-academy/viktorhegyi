@@ -1,5 +1,3 @@
-import java.awt.image.BufferedImage;
-
 /**
  * Created by hegyi on 2017-04-10.
  */

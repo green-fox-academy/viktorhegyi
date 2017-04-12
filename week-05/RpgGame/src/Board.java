@@ -12,6 +12,7 @@ public class Board extends JComponent implements KeyListener {
   int tileSize = 72;
   Hero hero = new Hero();
   Area tile = new Area();
+  Monster monster1 = new Monster();
 
   public Board() {
     setPreferredSize(new Dimension(canvasSise, canvasSise));
@@ -26,6 +27,7 @@ public class Board extends JComponent implements KeyListener {
     tile.drawBoard(graphics);
 
     hero.draw(graphics);
+    monster1.draw(graphics);
   }
 
   public static void main(String[] args) {
@@ -44,7 +46,6 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-
   }
 
   @Override

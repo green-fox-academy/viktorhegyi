@@ -5,8 +5,27 @@ import java.awt.image.BufferedImage;
  */
 public class Monster extends Character {
 
+  public Monster(int posX, int posY) {
+    super(ImageLoader.getInstance().SKELETON, posX, posY);
+  }
 
-  public Monster(BufferedImage image, int posX, int posY) {
-    super(image, posX, posY);
+  public int randomPosXGenerator() {
+    int randomPosX = (int) ((Math.random() * 10));
+    randomPosX = randomPosX * tileSize;
+    System.out.println(randomPosX);
+    return randomPosX;
+  }
+
+  public int randomPosYGenerator() {
+    int randomPosY = (int) ((Math.random() * 10));
+    randomPosY = randomPosY * tileSize;
+    System.out.println(randomPosY);
+    return randomPosY;
+  }
+
+  public Monster() {
+    super(ImageLoader.getInstance().SKELETON);
+    this.posX = randomPosXGenerator();
+    this.posY = randomPosYGenerator();
   }
 }
