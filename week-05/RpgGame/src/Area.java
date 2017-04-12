@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by hegyi on 2017-04-10.
  */
-public class Area extends Board {
+public class Area{
 
   String[][] wallPositions = new String[10][10];
   int size;
@@ -16,7 +16,6 @@ public class Area extends Board {
 
 
   public void drawTile(String in) {
-
     this.path = Paths.get("assets/wallposition.csv");
     try {
       List<String> lines = Files.readAllLines(path);
@@ -42,12 +41,11 @@ public class Area extends Board {
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (!isWall(i, j)) {
-          GameObject tile = new GameObject("assets/floor.png", j * size, i * size);
-          tile.draw(graphics);
+          EmptyTile emptyTile = new EmptyTile(i * size,j * size);
+          emptyTile.draw(graphics);
         } else {
-          GameObject tile = new GameObject("assets/wall.png", j * size, i * size);
-          tile.draw(graphics);
-
+          NotEmptyTile notEmptyTile = new NotEmptyTile(i * size,j * size);
+          notEmptyTile.draw(graphics);
         }
       }
     }

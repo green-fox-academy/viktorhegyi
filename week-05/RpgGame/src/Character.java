@@ -1,3 +1,5 @@
+import java.awt.image.BufferedImage;
+
 /**
  * Created by hegyi on 2017-04-10.
  */
@@ -9,9 +11,9 @@ public class Character extends GameObject {
   int maxDP;
   int maxSP;
   boolean death = false;
+  int tileSize = 72;
 
-  public Character(String filename, int posX, int posY) {
-    super(filename, posX, posY);
+  public Character(BufferedImage image, int posX, int posY) {
+    super(image, posX, posY);
   }
-
-}
+  }
