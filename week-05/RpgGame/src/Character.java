@@ -10,6 +10,7 @@ public class Character extends GameObject {
   int maxHP;
   int maxDP;
   int maxSP;
+  int level;
   int[] random = new int[2];
 
   Area area = new Area();
@@ -21,6 +22,9 @@ public class Character extends GameObject {
   public Character(BufferedImage image) {
     super(image);
   }
+  public Character() {
+  }
+
 
   public int randomGenerator() {
     int randomPos = (int) ((Math.random() * 10));

@@ -1,9 +1,9 @@
 /**
  * Created by hegyi on 2017-04-10.
  */
-public class Monster extends Character {
+public class Skeleton extends Character {
 
-  public Monster() {
+  public Skeleton() {
     super(ImageLoader.getInstance().SKELETON);
     randomPosXandPosY();
   }

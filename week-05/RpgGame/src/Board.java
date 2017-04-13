@@ -15,26 +15,31 @@ public class Board extends JComponent implements KeyListener {
   final static int HUB_HEIGHT = 50;
   Hero hero;
   Area area;
-  Monster monster;
+  Skeleton skeleton;
   Boss boss;
   Hub hub;
-  List<Monster> listOfMonsters = new ArrayList<>();
+  List<Character> listOfMonsters = new ArrayList<>();
 
   public Board() {
     setPreferredSize(new Dimension(mapSize, mapSize + HUB_HEIGHT));
     setVisible(true);
     hero = new Hero();
     area = new Area();
-    boss = new Boss();
     hub = new Hub();
-    
-    for (int i = 0; i < randomNumber(); i++) {
-      monster = new Monster();
-      listOfMonsters.add(monster);
+    boss = new Boss();
+    listOfMonsters.add(boss);
+    int numberOfSkeleton = randomNumber();
+
+    for (int i = 0; i < numberOfSkeleton; i++) {
+      skeleton = new Skeleton();
+      while ( isCharacterOnOthers(skeleton.posX, skeleton.posY)) {
+        listOfMonsters.add(skeleton);
+      }
     }
   }
+
   public int randomNumber() {
-    int randomNumber = (int) ((Math.random() * 5) + 2);
+    int randomNumber = (int) ((Math.random() * 4) + 2);
     return randomNumber;
   }
 
@@ -42,6 +47,14 @@ public class Board extends JComponent implements KeyListener {
     for (int i = 0; i <listOfMonsters.size() ; i++) {
       listOfMonsters.get(i).draw(graphics);
     }
+  }
+
+  public boolean isCharacterOnOthers(int currentPosX, int currentPosY) {
+    for( Character current : listOfMonsters) {
+      if ( current.posX == currentPosX && current.posY == currentPosY ) {
+        return false;
+      }
+    } return true;
   }
 
   @Override
@@ -52,8 +65,8 @@ public class Board extends JComponent implements KeyListener {
     hub.drawHub(graphics);
 
     hero.draw(graphics);
-    boss.draw(graphics);
     drawMonsters(graphics);
+
   }
 
   public static void main(String[] args) {
