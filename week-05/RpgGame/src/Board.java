@@ -1,6 +1,8 @@
 /**
  * Created by hegyi on 2017-04-10.
  */
+import java.util.*;
+import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -10,24 +12,36 @@ public class Board extends JComponent implements KeyListener {
 
   final static int mapSize = 720;
   final static int tileSize = 72;
+  final static int HUB_HEIGHT = 50;
   Hero hero;
   Area area;
-  Monster monster1;
-  Monster monster2;
-  Monster monster3;
+  Monster monster;
   Boss boss;
   Hub hub;
+  List<Monster> listOfMonsters = new ArrayList<>();
 
   public Board() {
-    setPreferredSize(new Dimension(mapSize, mapSize + 50));
+    setPreferredSize(new Dimension(mapSize, mapSize + HUB_HEIGHT));
     setVisible(true);
     hero = new Hero();
     area = new Area();
-    monster1 = new Monster();
-    monster2 = new Monster();
-    monster3 = new Monster();
     boss = new Boss();
     hub = new Hub();
+    
+    for (int i = 0; i < randomNumber(); i++) {
+      monster = new Monster();
+      listOfMonsters.add(monster);
+    }
+  }
+  public int randomNumber() {
+    int randomNumber = (int) ((Math.random() * 5) + 2);
+    return randomNumber;
+  }
+
+  public void drawMonsters(Graphics graphics) {
+    for (int i = 0; i <listOfMonsters.size() ; i++) {
+      listOfMonsters.get(i).draw(graphics);
+    }
   }
 
   @Override
@@ -38,10 +52,8 @@ public class Board extends JComponent implements KeyListener {
     hub.drawHub(graphics);
 
     hero.draw(graphics);
-    monster1.draw(graphics);
-    monster2.draw(graphics);
-    monster3.draw(graphics);
     boss.draw(graphics);
+    drawMonsters(graphics);
   }
 
   public static void main(String[] args) {
