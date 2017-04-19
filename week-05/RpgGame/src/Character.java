@@ -4,14 +4,13 @@ import java.awt.image.BufferedImage;
  * Created by hegyi on 2017-04-10.
  */
 public class Character extends GameObject {
-  int currentHP;
+  public int currentHP;
   int currentDP;
   int currentSP;
   int maxHP;
   int maxDP;
   int maxSP;
-  int level;
-  int[] random = new int[2];
+  int level = 1;
 
   Area area = new Area();
 
@@ -22,9 +21,6 @@ public class Character extends GameObject {
   public Character(BufferedImage image) {
     super(image);
   }
-  public Character() {
-  }
-
 
   public int randomGenerator() {
     int randomPos = (int) ((Math.random() * 10));
@@ -34,7 +30,7 @@ public class Character extends GameObject {
   public void randomPosXandPosY() {
     this.posX = randomGenerator();
     this.posY = randomGenerator();
-    while (getWallInfo(posX,posY)) {
+    while (isWall(posX,posY)) {
       this.posX = randomGenerator();
       this.posY = randomGenerator();
     }
@@ -42,7 +38,7 @@ public class Character extends GameObject {
     this.posY *= tileSize;
   }
 
-  boolean getWallInfo(int x, int y) {
+  boolean isWall(int x, int y) {
     if ((area.wallPositions[x][y]).equals("1")) {
       return true;
     } else {

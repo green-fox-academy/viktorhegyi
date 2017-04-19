@@ -9,9 +9,6 @@ public class GameObject{
   BufferedImage image;
   int posX, posY;
   final int tileSize = 72;
-  final int canvasSise = 720;
-
-
 
   public GameObject(BufferedImage image, int posX, int posY) {
     this.posX = posX;
@@ -34,6 +31,11 @@ public class GameObject{
     if (image != null) {
       graphics.drawImage(image, posX, posY, null);
     }
+  }
+
+  public int d6() {
+    int rolledNumber = (int) ((Math.random() * 6 ) +1);
+    return rolledNumber;
   }
 
 }

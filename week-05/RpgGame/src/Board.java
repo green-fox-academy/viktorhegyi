@@ -17,7 +17,6 @@ public class Board extends JComponent implements KeyListener {
   Area area;
   Skeleton skeleton;
   Boss boss;
-  Hub hub;
   List<Character> listOfMonsters = new ArrayList<>();
 
   public Board() {
@@ -25,36 +24,16 @@ public class Board extends JComponent implements KeyListener {
     setVisible(true);
     hero = new Hero();
     area = new Area();
-    hub = new Hub();
     boss = new Boss();
     listOfMonsters.add(boss);
     int numberOfSkeleton = randomNumber();
 
     for (int i = 0; i < numberOfSkeleton; i++) {
       skeleton = new Skeleton();
-      while ( isCharacterOnOthers(skeleton.posX, skeleton.posY)) {
+      while ( !isCharacterOnThisTile(skeleton.posX, skeleton.posY)) {
         listOfMonsters.add(skeleton);
       }
     }
-  }
-
-  public int randomNumber() {
-    int randomNumber = (int) ((Math.random() * 4) + 2);
-    return randomNumber;
-  }
-
-  public void drawMonsters(Graphics graphics) {
-    for (int i = 0; i <listOfMonsters.size() ; i++) {
-      listOfMonsters.get(i).draw(graphics);
-    }
-  }
-
-  public boolean isCharacterOnOthers(int currentPosX, int currentPosY) {
-    for( Character current : listOfMonsters) {
-      if ( current.posX == currentPosX && current.posY == currentPosY ) {
-        return false;
-      }
-    } return true;
   }
 
   @Override
@@ -62,10 +41,9 @@ public class Board extends JComponent implements KeyListener {
     super.paint(graphics);
 
     area.drawBoard(graphics);
-    hub.drawHub(graphics);
-
-    hero.draw(graphics);
     drawMonsters(graphics);
+    hero.draw(graphics);
+    area.drawHub(graphics, hero.info());
 
   }
 
@@ -85,6 +63,15 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
+    if (e.getKeyCode() == KeyEvent.VK_UP ) {
+      hero.setImage(ImageLoader.getInstance().HERO_UP);
+    } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+      hero.setImage(ImageLoader.getInstance().HERO_DOWN);
+    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      hero.setImage(ImageLoader.getInstance().HERO_RIGHT);
+    } else if(e.getKeyCode() == KeyEvent.VK_LEFT)  {
+      hero.setImage(ImageLoader.getInstance().HERO_LEFT);
+    }
   }
 
   @Override
@@ -92,15 +79,43 @@ public class Board extends JComponent implements KeyListener {
     int x = hero.posX / tileSize;
     int y = hero.posY / tileSize;
 
-    if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tileSize && !area.getWallInfo(x,y - 1)) {
-      hero.moveUp();
-    } else if(e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY <= tileSize * 8 && !area.getWallInfo(x, y + 1)) {
-      hero.moveDown();
-    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX <= tileSize * 8 && !area.getWallInfo(x + 1, y)) {
-      hero.moveRight();
-    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX > 0 && !area.getWallInfo(x - 1, y))  {
-      hero.moveLeft();
+    if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tileSize && !area.isWall(x,y - 1)) {
+      hero.posY -= tileSize;
+    } else if(e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY <= tileSize * 8 && !area.isWall(x, y + 1)) {
+      hero.posY += tileSize;
+    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX <= tileSize * 8 && !area.isWall(x + 1, y)) {
+      hero.posX += tileSize;
+    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX > 0 && !area.isWall(x - 1, y))  {
+      hero.posX -= tileSize;
     }
     repaint();
   }
+
+  public boolean isMonsters(int x, int y) {
+    for (int i = 0; i <listOfMonsters.size() ; i++) {
+      if(listOfMonsters.get(i).posX == x && listOfMonsters.get(i).posY == y){
+        return true;
+      }
+    }return false;
+  }
+
+  public int randomNumber() {
+    int randomNumber = (int) ((Math.random() * 4) + 2);
+    return randomNumber;
+  }
+
+  public void drawMonsters(Graphics graphics) {
+    for (int i = 0; i <listOfMonsters.size() ; i++) {
+      listOfMonsters.get(i).draw(graphics);
+    }
+  }
+
+  public boolean isCharacterOnThisTile(int currentPosX, int currentPosY) {
+    for( Character character : listOfMonsters) {
+      if ( character.posX == currentPosX && character.posY == currentPosY ) {
+        return true;
+      }
+    } return false;
+  }
+
 }

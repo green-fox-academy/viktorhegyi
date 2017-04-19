@@ -5,26 +5,16 @@ public class Hero extends Character{
 
   public Hero() {
     super(ImageLoader.getInstance().HERO_DOWN, 0, 0);
+    this.level = 1;
+    this.maxHP = 20 + 3 * d6();
+    this.currentHP = maxHP;
+    this.currentDP = 2 * d6();
+    this.currentSP = 5 + d6();
   }
 
-  public void moveUp () {
-    this.posY -= tileSize;
-    setImage(ImageLoader.getInstance().HERO_UP);
-  }
-
-  public void moveDown () {
-    this.posY += tileSize;
-    setImage(ImageLoader.getInstance().HERO_DOWN);
-  }
-
-  public void moveRight () {
-    this.posX += tileSize;
-    setImage(ImageLoader.getInstance().HERO_RIGHT);
-  }
-
-  public void moveLeft () {
-    this.posX -= tileSize;
-    setImage(ImageLoader.getInstance().HERO_LEFT);
+  public String info() {
+    return  "Hero " + "(Level " + level + ") " + "HP: " + currentHP + "/" + maxHP +
+        " | " + "DP: " + currentDP + " | " + "SP: " + currentSP;
   }
 
 }
