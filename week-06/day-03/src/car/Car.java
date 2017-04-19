@@ -8,14 +8,14 @@ public class Car {
   Type type;
   Color color;
 
-  @Override
-  public String toString() {
-    return "{ " + type + " " + color + " }";
-  }
-
   public Car(Type type, Color color) {
     this.type = type;
     this.color = color;
+  }
+
+  @Override
+  public String toString() {
+    return "{ " + type + " " + color + " }";
   }
 
 
