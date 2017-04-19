@@ -19,6 +19,7 @@ public class App {
 
     sameTypeCounter(parkingLot);
     sameColorCounter(parkingLot);
+
   }
 
   public static Type randomTypeGenerator() {
@@ -96,4 +97,5 @@ public class App {
     System.out.println("Black: " + counterBlack + " Red: " + counterRed + " White: " +
                         counterWhite + " Green: " + counterGreen);
   }
+
 }
