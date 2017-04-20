@@ -11,10 +11,9 @@ import joptsimple.OptionSet;
  * Created by Viktor on 2017-04-20.
  */
 public class lottery {
+
   public static void main(String[] args) {
     argumentHandler(args);
-
-
   }
 
   public static void argumentHandler(String[] args) {
@@ -25,33 +24,51 @@ public class lottery {
 
     OptionSet options = parser.parse(args);
 
-    if (options.has("y")) {
-      String valueOfY = options.valueOf("y").toString();
-      writer(valueOfY);
+    String valueOfY;
+    String valueOfF;
+    String valueOfO;
 
-      System.out.println("`-y` was given with the argument " + options.valueOf("y"));
-    }
-
-    if (options.has("f")) {
-      System.out.println("`-l` was given with the no additional information.");
-    }
-
-    if (options.has("o")) {
-      System.out.println("`-l` was given with the no additional information.");
+    if (options.has("y") && options.has("o") && options.has("f")) {
+      valueOfY = options.valueOf("y").toString();
+      valueOfF = options.valueOf("f").toString();
+      valueOfO = options.valueOf("o").toString();
+      writer(valueOfY, valueOfF, valueOfO);
+    } else if (options.has("y") && options.has("f")) {
+      valueOfY = options.valueOf("y").toString();
+      valueOfF = options.valueOf("f").toString();
+      valueOfO = "empty";
+      writer(valueOfY, valueOfF, valueOfO);
+    } else if (options.has("y") && options.has("o")) {
+      valueOfY = options.valueOf("y").toString();
+      valueOfF = "empty";
+      valueOfO = options.valueOf("o").toString();
+      writer(valueOfY, valueOfF, valueOfO);
+    } else if  (options.has("y")) {
+      valueOfY = options.valueOf("y").toString();
+      valueOfF = "empty";
+      valueOfO = "empty";
+      writer(valueOfY, valueOfF, valueOfO);
     }
   }
 
-  public static void writer(String input) {
+  public static void writer(String first, String second, String third) {
     try {
-      CSVReader reader = new CSVReader(new FileReader("src/main/java/otos.csv"), ';');
+      if( second.equals("empty")){
+        second = "otos.csv";
+      }
+      if (third.equals("empty")) {
+        third = "output.csv";
+      }
+
+      CSVReader reader = new CSVReader(new FileReader("src/main/java/" + second), ';');
       List<String[]> lines = reader.readAll();
       List<String[]> temp = new ArrayList<>();
         for ( String[] line : lines) {
-          if ( line[0].equals(input)) {
+          if ( line[0].equals(first)) {
             temp.add(line);
           }
         }
-      CSVWriter writer = new CSVWriter(new FileWriter("src/main/java/output.csv"), ';', CSVWriter.NO_QUOTE_CHARACTER);
+      CSVWriter writer = new CSVWriter(new FileWriter("src/main/java/" + third), ';', CSVWriter.NO_QUOTE_CHARACTER);
       writer.writeAll(temp);
       writer.close();
     } catch (Exception e) {
