@@ -14,7 +14,7 @@ public class CharOperations implements CharSequence {
 
   @Override
   public int length() {
-    return 0;
+    return testForMethod.length();
   }
 
   @Override
@@ -24,12 +24,18 @@ public class CharOperations implements CharSequence {
 
   @Override
   public CharSequence subSequence(int start, int end) {
-    return null;
+    String reversed = reverse(testForMethod);
+    return reversed.substring(start,end);
   }
 
   @Override
   public String toString() {
-    return super.toString();
+    return reverse(testForMethod);
+  }
+
+  private String reverse(String input) {
+    StringBuilder original = new StringBuilder(input);
+    return original.reverse().toString();
   }
 
   public static void main(String[] args) {
@@ -37,7 +43,8 @@ public class CharOperations implements CharSequence {
     String test = "backwards";
     CharOperations charOperations = new CharOperations(test);
 
-    System.out.println(charOperations.charAt(0));
+    System.out.println(charOperations.charAt(1));
+    System.out.println(charOperations.subSequence(2,4));
     System.out.println(charOperations.toString());
   }
 }

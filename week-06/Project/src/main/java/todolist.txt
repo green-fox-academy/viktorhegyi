@@ -2,3 +2,5 @@
 [ ] Feed the monkey
 [ ] Do homework
 [x] Walk the dog
+[ ] Go training Id: 2
+[ ] Go shopping Id: 2

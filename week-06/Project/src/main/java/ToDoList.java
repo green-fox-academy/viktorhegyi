@@ -8,9 +8,11 @@ import java.util.List;
  */
 public class ToDoList {
 
-  List<String> todolistFile = null;
+  static List<String> todolistFile = null;
   List<String> usageFile = null;
-  Path todolistPath = Paths.get("todolist.txt");
+  private Path todolistPath = Paths.get("src/main/java/todolist.txt");
+  private Path usagePath = Paths.get("src/main/java/usage.txt");
+
   String [] args;
 
   public ToDoList(String[] args) {
@@ -34,7 +36,6 @@ public class ToDoList {
 
   void usage() {
     try {
-      Path usagePath = Paths.get("usage.txt");
       usageFile = Files.readAllLines(usagePath);
     } catch (Exception e) {
       e.printStackTrace();
@@ -46,16 +47,14 @@ public class ToDoList {
   }
 
   void addTodolist() {
-    todolistPath = Paths.get("todolist.txt");
-    List<String> newTask;
 
     try {
       if (args.length == 1) {
         System.out.println("Unable to remove: no task provided");
       } else {
-        newTask = Files.readAllLines(todolistPath);
-        newTask.add(newTask.size(), "[ ] " + args[1]);
-        Files.write(todolistPath,newTask);
+        ToDoList.todolistFile = Files.readAllLines(todolistPath);
+        ToDoList.todolistFile.add(ToDoList.todolistFile.size(), "[ ] " + args[1]);
+        Files.write(todolistPath,ToDoList.todolistFile);
       }
     } catch (Exception e) {
       System.out.println("Uh-oh, could not read the file!");
@@ -63,7 +62,6 @@ public class ToDoList {
   }
 
   void removeTodolist() {
-    todolistPath = Paths.get("todolist.txt");
     List<String> removeTask;
     try {
       removeTask = Files.readAllLines(todolistPath);
@@ -81,7 +79,6 @@ public class ToDoList {
   }
 
   void checkTask() {
-    todolistPath = Paths.get("todolist.txt");
     List<String> checkedTask;
     String doneTask;
 

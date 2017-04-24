@@ -13,10 +13,13 @@ public class App {
       toDoList.ToDoList();
     } else if ( args[0].contains("-a")) {
       toDoList.addTodolist();
+      toDoList.ToDoList();
     } else if ( args[0].contains("-r")) {
       toDoList.removeTodolist();
+      toDoList.ToDoList();
     } else if ( args[0].contains("-c")) {
       toDoList.checkTask();
+      toDoList.ToDoList();
     } else if ( !args[0].contains("-") || args[0].contains("")) {
       System.out.println("\nUnsupported argument\n");
       toDoList.usage();
