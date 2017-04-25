@@ -3,7 +3,7 @@ package com.greenfox.bx.creditcard;
 /**
  * Created by Viktor on 2017-04-24.
  */
-interface CreditCardy {
+public interface CreditCardy {
 
   int getSumCVV();
 
