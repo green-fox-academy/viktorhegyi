@@ -1,10 +1,18 @@
-package com.greenfox.bx.vik;
+package com.greenfox.bx.reservation;
 import java.util.ArrayList;
 
 /**
  * Created by Viktor on 2017-04-24.
  */
 public class Reservation implements Reservationy{
+
+  private String Dow;
+  private String Code;
+
+  public Reservation() {
+    this.Dow = getDowBooking();
+    this.Code = getCodeBooking();
+  }
 
   @Override
   public String getDowBooking() {
