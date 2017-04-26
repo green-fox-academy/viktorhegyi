@@ -41,5 +41,5 @@ public class SumTheArray {
     System.out.println(sum);
     return sum;
   }
-  
+
 }
