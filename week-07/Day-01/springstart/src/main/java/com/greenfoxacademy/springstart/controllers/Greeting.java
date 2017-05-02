@@ -13,5 +13,4 @@ public class Greeting {
   long id;
   String content;
 
-
 }
