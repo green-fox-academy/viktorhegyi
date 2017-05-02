@@ -12,7 +12,7 @@ public class HelloRESTController {
 
   @RequestMapping(value="/greeting")
   public Greeting greeting() {
-    Greeting newGreeting = new Greeting();
+    Greeting newGreeting = new Greeting(1,"Hello");
     return newGreeting;
   }
 
