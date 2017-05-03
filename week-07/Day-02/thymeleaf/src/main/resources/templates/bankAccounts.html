@@ -6,12 +6,13 @@
   <meta charset="utf-8" />
 </head>
 <body>
-<!--/*@thymesVar id="animal" type="com.greenfox.vik.model.BankAccount"*/-->
+  <!--/*@thymesVar id="animal" type="com.greenfox.vik.model.BankAccount"*/-->
+  <!--/*@thymesVar id="list" type="com.greenfox.vik.controller.MoreBankAccountController"*/-->
 
   <span th:each="animal : ${list}">
-    <p th:text="'Name: ' + ${animal.getName()} +
+    <table th:text="'Index: ' + ${animalStat.count} + ' Name: ' + ${animal.getName()} +
    ' Balance: ' + ${#numbers.formatDecimal(animal.getBalance(), 0, 2)} + ' Zebra' +
-   ' Animal Type: ' + ${animal.getAnimalType()}"></p>
+   ' Animal Type: ' + ${animal.getAnimalType()}"></table>
   </span>
 
 </body>

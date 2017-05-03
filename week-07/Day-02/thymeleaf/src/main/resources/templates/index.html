@@ -8,9 +8,9 @@
 <body>
 
   <!--/*@thymesVar id="bankAccount" type="com.greenfox.vik.model.BankAccount"*/-->
-  <span th:text="'Name: ' + ${bankAccount.getName()} +
+  <p th:text="'Name: ' + ${bankAccount.getName()} +
    ' Balance: ' + ${#numbers.formatDecimal(bankAccount.getBalance(), 0, 2)} + ' Zebra' +
-   ' AnimalType: ' + ${bankAccount.getAnimalType()}"/>
+   ' AnimalType: ' + ${bankAccount.getAnimalType()}"></p>
 
 </body>
 </html>
