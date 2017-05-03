@@ -14,7 +14,7 @@
       <td th:text="'Balance'"></td>
       <td th:text="'Animal Type'"></td>
       <td th:text="'Rank'"></td>
-      <td th:text="'Guy'"></td>
+      <td th:text="'Character'"></td>
     </tr>
 
     <!--/*@thymesVar id="animal" type="com.greenfox.vik.model.BankAccount"*/-->
@@ -25,7 +25,10 @@
       <td th:text="${#numbers.formatDecimal(animal.getBalance(), 0, 2)} + ' Zebra'"></td>
       <td th:text="${animal.getAnimalType()}"></td>
       <td th:text="${animal.isKing()} ? 'King' : 'Dependent'"></td>
-      <td th:test="${animal.isGood()} ? 'Good one' : 'Bad guy'"></td>
+      <td th:switch="${animal.good}">
+        <span th:case="true" th:text="'Good one'"></span>
+        <span th:case="false" th:text="'Bad guy'"></span>
+      </td>
     </tr>
   </table>
 
