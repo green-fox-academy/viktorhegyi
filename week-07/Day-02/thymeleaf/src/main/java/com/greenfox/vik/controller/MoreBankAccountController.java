@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MoreBankAccountController {
 
-  BankAccount tiger = new BankAccount("Tigrusku", 1000, "tiger", false);
-  BankAccount leopard = new BankAccount("Leo", 500, "leopard", false);
-  BankAccount puma = new BankAccount("Pumi", 200, "puma", false);
-  BankAccount cat = new BankAccount("Macsek", 1, "cat", true);
+  BankAccount tiger = new BankAccount("Tigrusku", 1000, "tiger", false, true);
+  BankAccount leopard = new BankAccount("Leo", 500, "leopard", false, true);
+  BankAccount puma = new BankAccount("Pumi", 200, "puma", false, false);
+  BankAccount cat = new BankAccount("Macsek", 1, "cat", true, false);
 
   @RequestMapping("/exercise5")
   public String viewBankAccounts(Model model) {
