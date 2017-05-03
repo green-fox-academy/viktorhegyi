@@ -18,4 +18,5 @@ public class BankAccountController {
       model.addAttribute(bankAccount);
       return "index";
     }
+
 }

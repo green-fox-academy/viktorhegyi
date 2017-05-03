@@ -2,11 +2,13 @@ package com.greenfox.vik.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by Viktor on 2017-05-03.
  */
 
+@Setter
 @Getter
 @AllArgsConstructor
 public class BankAccount {
@@ -16,4 +18,5 @@ public class BankAccount {
   String animalType;
   boolean King;
   boolean Good;
+
 }
