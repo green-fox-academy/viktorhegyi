@@ -8,12 +8,14 @@
 <body>
   <!--/*@thymesVar id="animal" type="com.greenfox.vik.model.BankAccount"*/-->
   <!--/*@thymesVar id="list" type="com.greenfox.vik.controller.MoreBankAccountController"*/-->
-
-  <span th:each="animal : ${list}">
-    <table th:text="'Index: ' + ${animalStat.count} + ' Name: ' + ${animal.getName()} +
-   ' Balance: ' + ${#numbers.formatDecimal(animal.getBalance(), 0, 2)} + ' Zebra' +
-   ' Animal Type: ' + ${animal.getAnimalType()}"></table>
-  </span>
+  <table>
+    <tr th:each="animal : ${list}">
+      <td th:text="'Index: ' + ${animalStat.count}"></td>
+      <td th:text="'Name: ' + ${animal.getName()}"></td>
+      <td th:text="'Balance: ' + ${#numbers.formatDecimal(animal.getBalance(), 0, 2)} + ' Zebra'"></td>
+      <td th:text="'Animal Type: ' + ${animal.getAnimalType()}"></td>
+    </tr>
+  </table>
 
 </body>
 </html>
