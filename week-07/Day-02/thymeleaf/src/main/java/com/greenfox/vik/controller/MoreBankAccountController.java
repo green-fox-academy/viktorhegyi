@@ -20,20 +20,14 @@ public class MoreBankAccountController {
   BankAccount puma = new BankAccount("Pumi", 200, "puma", false, false);
   BankAccount cat = new BankAccount("Macsek", 1, "cat", true, false);
 
-  public MoreBankAccountController() {
-    list.add(0, tiger);
-    list.add(1, leopard);
-    list.add(2, puma);
-    list.add(3, cat);
-  }
-
   @RequestMapping("/exercise5")
   public String viewBankAccounts(Model model) {
-    ArrayList<BankAccount> list = new ArrayList<>();
-    list.add(0, tiger);
-    list.add(1, leopard);
-    list.add(2, puma);
-    list.add(3, cat);
+    if (list.size() == 0) {
+      list.add(0, tiger);
+      list.add(1, leopard);
+      list.add(2, puma);
+      list.add(3, cat);
+    }
     model.addAttribute("list", list);
     return "bankAccounts";
   }
@@ -47,8 +41,8 @@ public class MoreBankAccountController {
   }
 
   @RequestMapping("/add")
-  public String add(String name, int balance, String animalType, boolean King, boolean Good) {
-    BankAccount bankAccount = new BankAccount(name,balance,animalType,King,Good);
+  public String add(String name, int balance, String animalType) {
+    BankAccount bankAccount = new BankAccount(name,balance,animalType,false,true);
     list.add(bankAccount);
     return "redirect:/exercise5";
   }
