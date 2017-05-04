@@ -38,11 +38,18 @@ public class MoreBankAccountController {
     return "bankAccounts";
   }
 
-  @RequestMapping("/add")
-  public String hit(@RequestParam int id) {
+  @RequestMapping("/feed")
+  public String feed(@RequestParam int id) {
     int value = 10;
     int number = list.get(id).getBalance();
     list.get(id).setBalance(number + value);
+    return "redirect:/exercise5";
+  }
+
+  @RequestMapping("/add")
+  public String add(String name, int balance, String animalType, boolean King, boolean Good) {
+    BankAccount bankAccount = new BankAccount(name,balance,animalType,King,Good);
+    list.add(bankAccount);
     return "redirect:/exercise5";
   }
 }
