@@ -6,7 +6,7 @@ package com.greenfox.service;
 public class TwitterService implements MessageService {
 
   @Override
-  public void sendingMessage() {
-
+  public void show(String s, String s1) {
+    System.out.println("Tweet Sent to " + s1 + " with Message= " + s);
   }
 }
