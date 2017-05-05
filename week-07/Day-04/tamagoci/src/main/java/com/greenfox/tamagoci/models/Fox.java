@@ -34,4 +34,8 @@ public class Fox {
   public void addTrick(String input) {
     listOfTricks.add(input);
   }
+
+  public void addNewTrick(String trick) {
+    listOfTricksToLearn.add(trick);
+  }
 }

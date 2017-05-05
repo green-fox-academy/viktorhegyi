@@ -61,4 +61,12 @@ public class MainController {
     return m;
   }
 
+  @RequestMapping("/addNewTricks")
+  public ModelAndView addNewTrick(@RequestParam String trick) {
+    ModelAndView m = modelAndViewFactory.getModelAndView();
+    m.addObject("fox", fox);
+    fox.addNewTrick(trick);
+    m.setViewName("trickCenter");
+    return m;
+  }
 }
