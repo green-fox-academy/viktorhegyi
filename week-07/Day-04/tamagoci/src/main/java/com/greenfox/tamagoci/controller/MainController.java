@@ -5,6 +5,7 @@ import com.greenfox.tamagoci.models.ModelAndViewFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -32,4 +33,32 @@ public class MainController {
     m.setViewName("nutritionstore");
     return m;
   }
+
+  @RequestMapping("/changeNutrition")
+  public ModelAndView changeNutrition(String food, String drink) {
+    ModelAndView m = modelAndViewFactory.getModelAndView();
+    m.addObject("fox", fox);
+    fox.setActualFood(food);
+    fox.setActualDrink(drink);
+    m.setViewName("/index");
+    return m;
+  }
+
+  @RequestMapping("/trickCenter")
+  public ModelAndView trickCenter() {
+    ModelAndView m = modelAndViewFactory.getModelAndView();
+    m.addObject("fox", fox);
+    m.setViewName("/trickCenter");
+    return m;
+  }
+
+  @RequestMapping("/addTricks")
+  public ModelAndView addTricks(@RequestParam String trick) {
+    ModelAndView m = modelAndViewFactory.getModelAndView();
+    m.addObject("fox", fox);
+    fox.addTrick(trick);
+    m.setViewName("index");
+    return m;
+  }
+
 }

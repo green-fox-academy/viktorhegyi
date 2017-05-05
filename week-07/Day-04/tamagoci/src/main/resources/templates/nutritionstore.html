@@ -8,11 +8,12 @@
   <ul>
     <li><a th:href="@{'/'}">Information</a></li>
     <li><a th:href="@{'/nutritionStore'}">Nutrition Store</a></li>
+    <li><a th:href="@{'/trickCenter'}">Trick Center</a></li>
   </ul>
   <table>
   <form action="/changeNutrition">
     <span th:text="'Food'"></span>
-    <input type="text" name="food"/>
+    <input text="" name="food"/>
     <span th:text="'Drink'"></span>
     <input type="text" name="drink"/>
     <input type="submit" value="Change"/>
