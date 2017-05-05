@@ -7,39 +7,40 @@
 </head>
 <body>
 
-<form action="/add">
-  Name: <input type="text" name="name"/><p></p>
-  Balance: <input type="number" name="balance"/><p></p>
-  Animal Type: <input type="text" name="animalType"/><p></p>
-  <input type="submit" value="Add" />
-</form>
+  <form action="/add">
+    Name: <input type="text" name="name"/>
+    Balance: <input type="number" name="balance"/>
+    Animal Type: <input type="text" name="animalType"/>
+    Good Guy? <input type="checkbox" name="guy"/>
+    <input type="submit" value="Add"/>
+  </form>
 
   <table>
     <tr>
       <td>Index</td>
       <td>Name</td>
+      <td></td>
       <td>Balance</td>
       <td>Animal Type</td>
-      <td>Rank</td>
       <td>Character</td>
       <td>Feed</td>
     </tr>
 
     <!--/*@thymesVar id="animal" type="com.greenfox.vik.model.BankAccount"*/-->
     <!--/*@thymesVar id="list" type="com.greenfox.vik.controller.MoreBankAccountController"*/-->
-    <tr th:each="animal : ${list}" th:style="${animal.isKing()} ? 'color:RED'">
-    <td th:text="${animalStat.count}"></td>
-    <td th:text="${animal.getName()}"></td>
-    <td th:text="${#numbers.formatDecimal(animal.getBalance(), 0, 2)} + ' Zebra'"></td>
-    <td th:text="${animal.getAnimalType()}"></td>
-    <td th:text="${animal.isKing()} ? 'King' : 'Dependent'"></td>
-    <td th:switch="${animal.good}">
-    <span th:case="true" th:text="'Good one'"></span>
-    <span th:case="false" th:text="'Bad guy'"></span>
-    </td>
-    <td> <a th:href="${'/feed?id=' + animalStat.index}">+10</a></td>
-    </tr>
 
+    <tr th:each="animal : ${list}" th:style="${animal.isKing()} ? 'color:RED'">
+      <td th:text="${animalStat.count}"></td>
+      <td th:text="${animal.getName()}"></td>
+      <td th:text="${animal.isKing()} ? 'King'"></td>
+      <td th:text="${#numbers.formatDecimal(animal.getBalance(), 0, 2)} + ' Zebra'"></td>
+      <td th:text="${animal.getAnimalType()}"></td>
+      <td th:switch="${animal.good}">
+        <span th:case="true" th:text="'Good one'"></span>
+        <span th:case="false" th:text="'Bad guy'"></span>
+      </td>
+      <td> <a th:href="${'/feed?id=' + animalStat.index}">+10</a></td>
+    </tr>
   </table>
 </body>
 </html>

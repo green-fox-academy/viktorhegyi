@@ -41,8 +41,8 @@ public class MoreBankAccountController {
   }
 
   @RequestMapping("/add")
-  public String add(String name, int balance, String animalType) {
-    BankAccount bankAccount = new BankAccount(name,balance,animalType,false,true);
+  public String add(String name, int balance, String animalType, boolean guy) {
+    BankAccount bankAccount = new BankAccount(name,balance,animalType,false,guy);
     list.add(bankAccount);
     return "redirect:/exercise5";
   }
