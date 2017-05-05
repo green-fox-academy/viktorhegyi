@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 public class Fox {
 
   private String name;
-  String actualFood;
-  String actualDrink;
+  String actualFood = "sallad";
+  String actualDrink = "water";
   List<String> listOfTricks = new ArrayList<>();
 
   List<String> listOfTricksToLearn = new ArrayList<>(Arrays.asList("Make coffee", "Do backflip", "Wash dishes"));

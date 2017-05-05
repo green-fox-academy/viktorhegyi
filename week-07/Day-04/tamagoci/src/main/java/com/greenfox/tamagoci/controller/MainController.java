@@ -57,6 +57,13 @@ public class MainController {
     ModelAndView m = modelAndViewFactory.getModelAndView();
     m.addObject("fox", fox);
     fox.addTrick(trick);
+    for (int i = 0; i <fox.getListOfTricksToLearn().size() ; i++) {
+      int index;
+      if (trick.equals(fox.getListOfTricksToLearn().get(i))) {
+        index = i;
+        fox.getListOfTricksToLearn().remove(index);
+      }
+    }
     m.setViewName("index");
     return m;
   }
