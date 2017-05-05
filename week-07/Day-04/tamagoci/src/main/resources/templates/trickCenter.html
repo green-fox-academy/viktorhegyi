@@ -11,17 +11,22 @@
    <li><a th:href="@{'/trickCenter'}">Trick Center</a></li>
  </ul>
  <table>
-   <form action="/addTricks">
-     <span th:text="'Tricks'"></span>
-     <select name="trick">
-       <!--/*@thymesVar id="fox" type="com.greenfox.tamagoci.models.Fox"*/-->
-       <option th:each="trick : ${fox.listOfTricksToLearn}"
+   <!--/*@thymesVar id="fox" type="com.greenfox.tamagoci.models.Fox"*/-->
+   <block th:if="${fox.getListOfTricksToLearn().size() == 0}">
+    <span >Nothing to learn. Add new tricks to learn</span>
+   </block>
+   <block th:if="${fox.getListOfTricksToLearn().size() != 0}">
+    <form action="/addTricks">
+      <span th:text="'Tricks'"></span>
+      <select name="trick">
+         <option th:each="trick : ${fox.listOfTricksToLearn}"
               th:value="${trick}"
               th:text="${trick}">
-       </option>
-     </select>
-     <input type="submit" value="Learn"/>
-   </form>
+         </option>
+      </select>
+      <input type="submit" value="Learn"/>
+    </form>
+   </block>
  </table>
 
  <table>
