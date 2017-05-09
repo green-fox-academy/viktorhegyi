@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>ToDo CRUD App</title>
+</head>
+<body>
+
+
+  <h1>ToDos for today:</h1>
+
+  <tr th:each="todo : ${todos}">
+    <ul th:text="${todo.title}"></ul>
+  </tr>
+
+</body>
+</html>
