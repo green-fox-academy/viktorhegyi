@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>ToDo CRUD App</title>
+</head>
+<body>
+
+<h1>Add new todo</h1>
+<!--/*@thymesVar id="todo" type="com.greenfox.model.Todo"*/-->
+<form action="/todo/addTodo">
+  <input type="text" name="title" th:value="${title}"/>
+  <p></p>
+  <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>
