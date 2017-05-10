@@ -1,12 +1,16 @@
 package com.greenfox.controller;
 
 import com.greenfox.model.AppandA;
+import com.greenfox.model.DoUntil;
 import com.greenfox.model.Greeter;
 import com.greenfox.model.OutPutNumber;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainRestController {
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
-  public String handleMissingInput() {
-    return "error: " + "Please provide an input!";
+  public String handleMissingInput(MissingServletRequestParameterException e) {
+    return "error: " + "Please provide an " + e.getParameterName() + "!";
+  }
+
+  @ExceptionHandler(HttpMessageNotReadableException.class)
+  public String handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+    return "error:" + "Please provide a number!";
   }
 
   @GetMapping(value = "/doubling")
@@ -34,7 +43,17 @@ public class MainRestController {
   }
 
   @GetMapping(value = "/appenda/{appendable}")
-  public AppandA appendA (@PathVariable(value = "appendable") String appandable) {
-    return new AppandA(appandable);
+  public AppandA appendA (@PathVariable(value = "appendable") String appendable) {
+    return new AppandA(appendable);
+  }
+
+  @PostMapping(value = "/dountil/{what}")
+  public DoUntil doUntil (@RequestBody DoUntil doUntil, @PathVariable(value = "what") String what) {
+    if( what.equals("sum")) {
+      doUntil.sum();
+    } else if ( what.equals("factor")) {
+      doUntil.factor();
+    }
+    return doUntil;
   }
 }
