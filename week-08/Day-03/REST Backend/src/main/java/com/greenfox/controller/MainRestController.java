@@ -1,5 +1,6 @@
 package com.greenfox.controller;
 
+import com.greenfox.model.Greeter;
 import com.greenfox.model.OutPutNumber;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,9 +20,14 @@ public class MainRestController {
   }
 
   @GetMapping(value = "/doubling")
-  public OutPutNumber doubling(@RequestParam(value="input", required = true) int input) {
+  public OutPutNumber doubling(@RequestParam(value="input") int input) {
     OutPutNumber outPutNumber = new OutPutNumber(input, input*2);
     return outPutNumber;
   }
 
+  @GetMapping(value = "/greeter")
+  public Greeter greeter (@RequestParam(value="name") String name,
+                            @RequestParam(value="title") String title) {
+    return new Greeter(name, title);
+  }
 }
