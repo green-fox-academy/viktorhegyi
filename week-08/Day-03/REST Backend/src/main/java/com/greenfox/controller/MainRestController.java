@@ -1,9 +1,11 @@
 package com.greenfox.controller;
 
 import com.greenfox.model.AppandA;
+import com.greenfox.model.Array;
 import com.greenfox.model.DoUntil;
 import com.greenfox.model.Greeter;
 import com.greenfox.model.OutPutNumber;
+import com.greenfox.model.ReturnArray;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -55,5 +57,16 @@ public class MainRestController {
       doUntil.factor();
     }
     return doUntil;
+  }
+
+  @PostMapping(value = "/arrays")
+  public ReturnArray array (@RequestBody Array array) {
+    if(array.whatGetter().equals("double")) {
+      return array.doubble();
+    } else {
+      array.multiply();
+      array.sum();
+    }
+    return array;
   }
 }
