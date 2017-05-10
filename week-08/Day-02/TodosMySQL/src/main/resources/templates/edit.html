@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>ToDo CRUD App</title>
+</head>
+<body>
+
+<h1>Edit todo</h1>
+<!--/*@thymesVar id="todo" type="com.greenfox.model.Todo"*/-->
+<form action="/todo" method="post" th:object="${todo}">
+  <input type="hidden" th:field="${todo.id}" />
+  <td>Todo description</td>
+  <input type="text" name="title" th:value="${title}"/>
+  <p></p>
+  Urgent<input type="checkbox" name="urgent" th:field="${todo.isUrgent()}"/>
+  Done<input type="checkbox" name="done" th:field="${todo.isDone()}"/>
+  <input type="submit" value="Submit"/>
+  <a th:href="@{/todo}">Cancel</a>
+</form>
+
+</body>
+</html>
