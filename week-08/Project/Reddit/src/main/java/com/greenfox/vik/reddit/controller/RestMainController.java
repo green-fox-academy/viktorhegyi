@@ -39,7 +39,6 @@ public class RestMainController {
     Post post = repository.findOne(id);
     post.upvoteScore();
     repository.save(post);
-    posts.addPost(repository.findAll());
     return post;
   }
 
@@ -48,8 +47,7 @@ public class RestMainController {
     Post post = repository.findOne(id);
     post.downvoteScore();
     repository.save(post);
-    posts.addPost(repository.findAll());
     return post;
   }
-  
+
 }
