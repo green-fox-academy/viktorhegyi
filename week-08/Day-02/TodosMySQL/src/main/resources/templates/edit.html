@@ -7,17 +7,17 @@
 <body>
 
 <h1>Edit todo</h1>
-<!--/*@thymesVar id="todo" type="com.greenfox.model.Todo"*/-->
-<form action="/todo" method="post" th:object="${todo}">
-  <input type="hidden" th:field="${todo.id}" />
-  <td>Todo description</td>
-  <input type="text" name="title" th:value="${title}"/>
-  <p></p>
-  Urgent<input type="checkbox" name="urgent" th:field="${todo.isUrgent()}"/>
-  Done<input type="checkbox" name="done" th:field="${todo.isDone()}"/>
-  <input type="submit" value="Submit"/>
-  <a th:href="@{/todo}">Cancel</a>
-</form>
 
+<!--/*@thymesVar id="todo" type="com.greenfox.model.Todo"*/-->
+<table>
+    <h4>Edit To Do:</h4>
+    <form th:action="@{/save}" method="post" th:object="${todo}">
+      <div><input type="hidden"  th:field="*{id}"/></div>
+      <div><input type="text" name="title" th:value="*{title}" required="required"/> Update description</div>
+      <div><input type="checkbox" name="isDone" th:checked="*{done}"/>Done</div>
+      <div><input type="checkbox" name="isUrgent" th:checked="*{urgent}"/>Urgent</div>
+      <input type="submit"/>
+    </form>
+</table>
 </body>
 </html>

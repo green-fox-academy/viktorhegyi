@@ -39,8 +39,8 @@ public class TodoController {
   }
 
   @RequestMapping(value = "/addTodo")
-  public String  addTodo(String title, Model model) {
-    model.addAttribute("todos", repository.save(new Todo(title)));
+  public String  addTodo(String title, boolean isUrgent, Model model) {
+    model.addAttribute("todos", repository.save(new Todo(title, isUrgent)));
     return "redirect:/todo/";
   }
 
@@ -53,13 +53,18 @@ public class TodoController {
 
   @GetMapping("/{id}/edit")
   public String edit2(@PathVariable long id, Model model) {
-    model.addAttribute("entry", repository.findOne(id));
+    model.addAttribute("todo", repository.findOne(id));
     return "edit";
   }
 
-  @PostMapping("/{id}/edit")
-  public String update(long id, String title, boolean isUrgent, boolean isDone, Model model) {
-    repository.save(new Todo(title, isUrgent, isDone));
+  @PostMapping("/save")
+  public String save(Model model, @RequestParam long id, String title, boolean isUrgent, boolean isDone) {
+    model.addAttribute("todo", repository.findOne(id));
+    Todo toDo = repository.findOne(id);
+    toDo.setTitle(title);
+    toDo.setDone(isDone);
+    toDo.setUrgent(isUrgent);
+    repository.save(toDo);
     return "redirect:/";
   }
 }
