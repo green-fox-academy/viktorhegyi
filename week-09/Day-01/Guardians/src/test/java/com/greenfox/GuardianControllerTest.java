@@ -43,7 +43,7 @@ public class GuardianControllerTest {
   }
 
   @Test
-  public void TestStatusOk() throws Exception {
+  public void TestForGrootStatusOk() throws Exception {
     mockMvc.perform(get("/groot?message=somemessage"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(contentType))
@@ -52,10 +52,27 @@ public class GuardianControllerTest {
   }
 
   @Test
-  public void TestStatusNotOk() throws Exception {
+  public void TestForGrootError() throws Exception {
     mockMvc.perform(get("/groot?message="))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.error", is("I am Groot!")));
   }
+
+  @Test
+  public void TestForYonduStatusOk() throws Exception {
+    mockMvc.perform(get("/yondu?distance=100.0&time=10.0"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.distance", is(100.0)))
+        .andExpect(jsonPath("$.time", is(10.0)))
+        .andExpect(jsonPath("$.speed", is(10.0)));
+  }
+
+  @Test
+  public void TestForYonduWithoutParam() throws Exception {
+    mockMvc.perform(get("/yondu"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.error", is("I am Groot!")));
+  }
+
 
 }
