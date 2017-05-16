@@ -68,4 +68,20 @@ public class TodoController {
     repository.save(toDo);
     return "redirect:/todo/";
   }
+
+  @GetMapping("/{id}/done")
+  public String done(@PathVariable long id) {
+    Todo todo = repository.findOne(id);
+    todo.setDone(true);
+    todo.setUrgent(false);
+    repository.save(todo);
+    return "redirect:/todo/";
+  }
+
+//  @PostMapping("/save")
+//  public String save(Model model, @RequestBody Todo newTodo) {
+//    model.addAttribute("todo", repository.findOne(newTodo.getId()));
+//    repository.save(newTodo);
+//    return "redirect:/todo/";
+//  }
 }

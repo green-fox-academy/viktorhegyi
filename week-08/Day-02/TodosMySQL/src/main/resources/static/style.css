@@ -1,0 +1,28 @@
+body {
+  font-family: Calibri;
+  width: 100%;
+  background-color: mediumseagreen;
+  text-align: center;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+table {
+  border: solid black 1px;
+  background-color: wheat;
+  width: 70%;
+  margin: auto;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  border: solid black 1px;
+  background-color: white;
+}
