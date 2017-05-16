@@ -34,7 +34,7 @@ public class RestMainController {
     return repository.save(post);
   }
 
-  @RequestMapping(value = "/posts/{id}/upvote", method = RequestMethod.POST)
+  @RequestMapping(value = "/posts/{id}/upvote", method = RequestMethod.PUT)
   public Post upvotePost(@PathVariable (value="id") long id) {
     Post post = repository.findOne(id);
     post.upvoteScore();
@@ -42,7 +42,7 @@ public class RestMainController {
     return post;
   }
 
-  @RequestMapping(value = "/posts/{id}/downvote", method = RequestMethod.POST)
+  @RequestMapping(value = "/posts/{id}/downvote", method = RequestMethod.PUT)
   public Post downvotePost(@PathVariable (value="id") long id) {
     Post post = repository.findOne(id);
     post.downvoteScore();
