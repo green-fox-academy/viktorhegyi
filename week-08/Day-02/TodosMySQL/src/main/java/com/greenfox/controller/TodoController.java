@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,7 @@ public class TodoController {
     } else {
       model.addAttribute("todos", repository.findAll());
     }
-    return "/ListTodos";
+    return "ListTodos";
   }
 
   @RequestMapping(value = "/add")
@@ -38,9 +39,9 @@ public class TodoController {
     return "add";
   }
 
-  @RequestMapping(value = "/addTodo")
-  public String  addTodo(String title, boolean isUrgent, Model model) {
-    model.addAttribute("todos", repository.save(new Todo(title, isUrgent)));
+  @PostMapping(value = "/addTodo")
+  public String addTodo(String title, boolean isUrgent) {
+    repository.save(new Todo(title, isUrgent));
     return "redirect:/todo/";
   }
 
@@ -65,6 +66,6 @@ public class TodoController {
     toDo.setDone(isDone);
     toDo.setUrgent(isUrgent);
     repository.save(toDo);
-    return "redirect:/";
+    return "redirect:/todo/";
   }
 }
