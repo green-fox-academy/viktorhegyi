@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Calorie Table</title>
+  <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1 class="text-center">Add new meal</h1>
+      <!--/*@thymesVar id="meal" type="com.greenfox.model.Meal"*/-->
+      <form th:action="@{/addMeal}" th:object="${meal}" method="post">
+        <table>
+          <tr>
+            <td>Date</td>
+            <td>Type</td>
+            <td>Description</td>
+            <td>Calories</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="date" th:field="*{time}"/>
+            </td>
+            <td>
+              <select th:field="*{type}">
+                <!--/*@thymesVar id="typeList" type="java.util.List<com.greenfox.model.Type>"*/-->
+                <option th:each="typeElement : ${typeList}"
+                        th:value="${typeElement.getType()}"
+                        th:text="${typeElement.getType()}">
+                </option>
+              </select>
+            </td>
+            <td>
+              <input type="text" th:field="*{description}"/>
+            </td>
+            <td>
+              <input type="number" th:field="*{calorie}"/>
+            </td>
+            <td>
+              <input type="submit" class="btn btn-primary" value="Submit"/>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <form class="text-center" th:action="@{/}">
+        <input type="submit" class="btn btn-warning text-center" value="cancel"/>
+      </form>
+    </div>
+  </div>
+</div>
+  <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+  <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
+</html>
