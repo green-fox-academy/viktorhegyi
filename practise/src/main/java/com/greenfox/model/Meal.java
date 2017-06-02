@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -19,14 +24,23 @@ public class Meal {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
+  @NotBlank(message = "must not be blank")
   private String type;
 
+  @NotNull(message = "add a date")
+  @Past(message = "you can add future food..")
   @Temporal(TemporalType.DATE)
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date time;
 
+  @NotBlank(message = "must not be blank")
+  @Size(min = 3, message = "more than 3 letters..")
   private String description;
-  private int calorie;
+
+  @NotNull(message = "can not be empty")
+  @Min(value = 1, message = "minimum 1")
+  private Integer calorie;
+
 
   public Meal() {
   }
@@ -71,11 +85,11 @@ public class Meal {
     this.description = description;
   }
 
-  public int getCalorie() {
+  public Integer getCalorie() {
     return calorie;
   }
 
-  public void setCalorie(int calorie) {
+  public void setCalorie(Integer calorie) {
     this.calorie = calorie;
   }
 }

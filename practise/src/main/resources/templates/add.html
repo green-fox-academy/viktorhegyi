@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Calorie Table</title>
-  <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -34,24 +34,39 @@
               </select>
             </td>
             <td>
-              <input type="text" th:field="*{description}"/>
+              <input type="text" th:field="*{description}" placeholder="Description"/>
             </td>
             <td>
-              <input type="number" th:field="*{calorie}"/>
+              <input type="number" th:field="*{calorie}" placeholder="Calorie amount"/>
             </td>
             <td>
               <input type="submit" class="btn btn-primary" value="Submit"/>
             </td>
+            <td>
+              <a th:href="@{/}" class="btn btn-warning">cancel</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div th:if="${#fields.hasErrors('time')}"
+                 th:errors="*{time}"></div>
+            </td>
+            <td></td>
+            <td>
+              <p th:if="${#fields.hasErrors('description')}"
+                 th:errors="*{description}"></p>
+            </td>
+            <td>
+              <p th:if="${#fields.hasErrors('calorie')}"
+                 th:errors="*{calorie}"></p>
+            </td>
           </tr>
         </table>
-      </form>
-      <form class="text-center" th:action="@{/}">
-        <input type="submit" class="btn btn-warning text-center" value="cancel"/>
       </form>
     </div>
   </div>
 </div>
-  <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
-  <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+  <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

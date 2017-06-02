@@ -3,9 +3,11 @@ package com.greenfox.controller;
 import com.greenfox.model.Meal;
 import com.greenfox.service.CalorieTableService;
 import com.greenfox.service.MealTypeService;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +39,11 @@ public class MainController {
   }
 
   @PostMapping("/addMeal")
-  public String addMeal(Meal meal) {
+  public String addMeal(@Valid Meal meal, BindingResult bindingResult, Model model) {
+    model.addAttribute("typeList", mealTypeService.listOfMealType());
+    if (bindingResult.hasErrors()) {
+      return "add";
+    }
     calorieTableService.addMeal(meal);
     return "redirect:/";
   }
@@ -56,7 +62,11 @@ public class MainController {
   }
 
   @PostMapping("/edit")
-  public String edit(Model model, Meal meal) {
+  public String edit(@Valid Meal meal, BindingResult bindingResult, Model model) {
+    model.addAttribute("typeList", mealTypeService.listOfMealType());
+    if (bindingResult.hasErrors()) {
+      return "edit";
+    }
     calorieTableService.addMeal(meal);
     return "redirect:/";
   }

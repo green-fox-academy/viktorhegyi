@@ -1,6 +1,7 @@
 package com.greenfox.repository;
 
 import com.greenfox.model.Meal;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -8,4 +9,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface CalorieRepository extends CrudRepository<Meal, Long> {
 
+  @Override
+  List<Meal> findAll();
 }
